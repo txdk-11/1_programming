@@ -1,0 +1,609 @@
+/* ========================================
+   전역 스타일
+   ======================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+    color: #333;
+}
+
+/* ========================================
+   컨테이너 및 레이아웃
+   ======================================== */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.1em;
+    opacity: 0.9;
+}
+
+main {
+    padding: 40px 30px;
+}
+
+footer {
+    background: #f5f5f5;
+    padding: 20px;
+    text-align: center;
+    color: #666;
+    font-size: 0.9em;
+}
+
+/* ========================================
+   섹션 스타일
+   ======================================== */
+section {
+    margin-bottom: 50px;
+    padding-bottom: 30px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+section:last-of-type {
+    border-bottom: none;
+}
+
+section h2 {
+    font-size: 1.8em;
+    color: #667eea;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #667eea;
+}
+
+/* ========================================
+   입력 그룹
+   ======================================== */
+.input-group {
+    margin-bottom: 25px;
+}
+
+.input-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #333;
+    font-size: 1em;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="number"] {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1em;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* ========================================
+   비밀번호 입력 래퍼
+   ======================================== */
+.password-input-wrapper {
+    position: relative;
+    display: flex;
+}
+
+.password-input-wrapper input {
+    flex: 1;
+    margin: 0;
+}
+
+.toggle-btn {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 1.2em;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 5px;
+    transition: background 0.2s ease;
+}
+
+.toggle-btn:hover {
+    background: rgba(102, 126, 234, 0.1);
+}
+
+/* ========================================
+   점수 표시
+   ======================================== */
+.score-display {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.score-info {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+}
+
+.score-number {
+    font-size: 3em;
+    font-weight: bold;
+}
+
+.score-label {
+    font-size: 1.2em;
+}
+
+.score-grade {
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+/* ========================================
+   강도 게이지
+   ======================================== */
+.strength-gauge {
+    width: 100%;
+    height: 25px;
+    background: #f0f0f0;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    border: 2px solid #ddd;
+}
+
+.strength-bar {
+    height: 100%;
+    width: 0%;
+    background: #999;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8em;
+    font-weight: bold;
+    color: white;
+}
+
+/* 강도별 색상 */
+.strength-bar.very-weak {
+    background: linear-gradient(90deg, #ff4444, #ff6666);
+    width: 20%;
+}
+
+.strength-bar.weak {
+    background: linear-gradient(90deg, #ff9900, #ffaa00);
+    width: 40%;
+}
+
+.strength-bar.medium {
+    background: linear-gradient(90deg, #ffdd00, #ffee00);
+    width: 60%;
+    color: #333;
+}
+
+.strength-bar.strong {
+    background: linear-gradient(90deg, #44dd44, #66ff66);
+    width: 80%;
+    color: #333;
+}
+
+.strength-bar.very-strong {
+    background: linear-gradient(90deg, #00bb00, #00dd00);
+    width: 100%;
+}
+
+/* ========================================
+   강도 설명
+   ======================================== */
+.strength-description {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.strength-text {
+    font-size: 1.1em;
+    font-weight: 500;
+    color: #667eea;
+}
+
+/* ========================================
+   분석 체크리스트
+   ======================================== */
+.analysis-checklist {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.analysis-checklist h3 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.checklist-items {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+@media (max-width: 600px) {
+    .checklist-items {
+        grid-template-columns: 1fr;
+    }
+}
+
+.checklist-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.checklist-item input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: #667eea;
+}
+
+.checklist-item label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    user-select: none;
+    margin: 0;
+}
+
+.checklist-item .icon {
+    color: #999;
+    font-weight: bold;
+}
+
+.checklist-item input[type="checkbox"]:checked + label {
+    color: #44dd44;
+}
+
+.checklist-item input[type="checkbox"]:checked + label .icon {
+    color: #44dd44;
+}
+
+/* ========================================
+   피드백 박스
+   ======================================== */
+.feedback-box {
+    background: #f0f8ff;
+    border-left: 4px solid #667eea;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.feedback-box h3 {
+    color: #667eea;
+    margin-bottom: 10px;
+}
+
+.feedback-list {
+    list-style: none;
+    padding: 0;
+}
+
+.feedback-list li {
+    padding: 8px 0;
+    padding-left: 25px;
+    position: relative;
+    color: #555;
+    line-height: 1.5;
+}
+
+.feedback-list li:before {
+    content: "⚠️ ";
+    position: absolute;
+    left: 0;
+}
+
+/* ========================================
+   버튼 스타일
+   ======================================== */
+.btn {
+    padding: 12px 24px;
+    font-size: 1em;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn-reset {
+    background: #999;
+    color: white;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.btn-reset:hover {
+    background: #777;
+}
+
+.btn-generate {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1em;
+    margin-top: 20px;
+}
+
+.btn-generate:hover {
+    opacity: 0.9;
+}
+
+.btn-copy {
+    background: #44dd44;
+    color: white;
+    margin-left: 10px;
+}
+
+.btn-copy:hover {
+    background: #33cc33;
+}
+
+.btn-copy.copied {
+    background: #667eea;
+}
+
+/* ========================================
+   생성된 비밀번호
+   ======================================== */
+.generated-password {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.generated-password input {
+    flex: 1;
+}
+
+.generated-password .btn {
+    margin: 0;
+}
+
+/* ========================================
+   길이 선택기
+   ======================================== */
+.length-selector {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.length-selector input[type="range"] {
+    flex: 1;
+    height: 6px;
+    border-radius: 3px;
+    background: #ddd;
+    outline: none;
+    -webkit-appearance: none;
+}
+
+.length-selector input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #667eea;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(102, 126, 234, 0.5);
+}
+
+.length-selector input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #667eea;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 2px 5px rgba(102, 126, 234, 0.5);
+}
+
+.length-selector input[type="number"] {
+    width: 80px;
+    padding: 8px;
+}
+
+.length-label {
+    color: #666;
+    font-weight: 600;
+    min-width: 30px;
+}
+
+/* ========================================
+   생성 옵션
+   ======================================== */
+.generation-options {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.generation-options h3 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: #667eea;
+}
+
+/* ========================================
+   보안 팁
+   ======================================== */
+.security-tips-section {
+    border-bottom: none;
+}
+
+.tips-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+@media (max-width: 768px) {
+    .tips-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.tip-card {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 4px solid #667eea;
+    transition: all 0.3s ease;
+}
+
+.tip-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+}
+
+.tip-card h3 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.tip-card p {
+    color: #555;
+    line-height: 1.6;
+    font-size: 0.95em;
+}
+
+/* ========================================
+   반응형 디자인
+   ======================================== */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    header p {
+        font-size: 1em;
+    }
+
+    main {
+        padding: 20px 15px;
+    }
+
+    section h2 {
+        font-size: 1.5em;
+    }
+
+    .score-display {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .generated-password {
+        flex-direction: column;
+    }
+
+    .generated-password .btn {
+        width: 100%;
+    }
+
+    .length-selector {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .length-selector input[type="number"] {
+        width: 100%;
+    }
+}
+
+/* ========================================
+   유틸리티 클래스
+   ======================================== */
+.hidden {
+    display: none;
+}
+
+.success {
+    animation: successFlash 0.5s ease;
+}
+
+@keyframes successFlash {
+    0% {
+        background: #44dd44;
+    }
+    100% {
+        background: white;
+    }
+}
